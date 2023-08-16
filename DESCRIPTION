@@ -1,6 +1,6 @@
 Package: PopGenHelpR
 Title: Streamline Population Genomic and Genetic Analyses
-Version: 1.0.0
+Version: 1.2.1
 Authors@R: 
     c(person("Keaka", "Farleigh", , "keakafarleigh@gmail.com", role = c("aut","cph", "cre"), comment = c(ORCID = "0000-0002-9195-121X")),
     person("Mason", "Murphy", , "momurph@bgsu.edu", role = c("aut","cph", "ctb"), comment = c(ORCID = "0000-0002-5317-1386")),
@@ -11,17 +11,17 @@ URL: https://kfarleigh.github.io/PopGenHelpR/
 BugReports: https://github.com/kfarleigh/PopGenHelpR/issues
 License: GPL (>= 3)
 Encoding: UTF-8
-RoxygenNote: 7.2.0
+RoxygenNote: 7.2.3
 Suggests: knitr, rmarkdown, testthat (>= 3.0.0)
 Config/testthat/edition: 3
-Imports: adegenet, dartR, dplyr, ggplot2, graphics, gstat, hierfstat,
-        magrittr, poppr, raster, reshape2, rnaturalearth, scatterpie,
-        StAMPP, stats, sp, spdep, utils, vcfR
+Imports: adegenet, dartR, dplyr, ggplot2, gstat, hierfstat, magrittr,
+        methods, poppr, raster, reshape2, rlang, scatterpie, StAMPP,
+        stats, sp, spData, spdep, utils, vcfR
 Depends: R (>= 2.10)
 LazyData: true
 VignetteBuilder: knitr
 NeedsCompilation: no
-Packaged: 2023-02-10 13:46:38 UTC; Keaka
+Packaged: 2023-08-15 16:09:22 UTC; Keaka
 Author: Keaka Farleigh [aut, cph, cre]
     (<https://orcid.org/0000-0002-9195-121X>),
   Mason Murphy [aut, cph, ctb] (<https://orcid.org/0000-0002-5317-1386>),
@@ -31,4 +31,4 @@ Author: Keaka Farleigh [aut, cph, cre]
     (<https://orcid.org/0000-0003-4114-4564>)
 Maintainer: Keaka Farleigh <keakafarleigh@gmail.com>
 Repository: CRAN
-Date/Publication: 2023-02-13 08:40:05 UTC
+Date/Publication: 2023-08-16 09:32:37 UTC

@@ -8,11 +8,11 @@ Div_Stats_Map(
   dat,
   plot.type = "all",
   statistic,
-  countries,
   breaks = NULL,
   col,
   Lat_buffer = 1,
   Long_buffer = 1,
+  write = FALSE,
   prefix = NULL
 )
 }
@@ -23,8 +23,6 @@ Div_Stats_Map(
 
 \item{statistic}{Character string. The statistic to be plotted.}
 
-\item{countries}{Character vector indicating the country borders that you wish to plot on a map. Can be any country that is valid in the ne_states function in the rnaturalearth package.}
-
 \item{breaks}{Numeric. The breaks used to generate the color ramp when plotting. Users should supply 3 values if custom breaks are desired.}
 
 \item{col}{Character vector indicating the colors you wish to use for plotting, three colors are allowed (low, mid, high). The first color will be the low color, the second the middle, the third the high.}
@@ -32,6 +30,8 @@ Div_Stats_Map(
 \item{Lat_buffer}{Numeric. A buffer to customize visualization.}
 
 \item{Long_buffer}{Numeric. A buffer to customize visualization.}
+
+\item{write}{Boolean. Whether or not to write the output to a file in the current working directory.}
 
 \item{prefix}{Character string that will be appended to file output.}
 }
@@ -45,6 +45,6 @@ A function to map diversity statistics.
 \donttest{
 data(Het_dat)
 Test_het <- Div_Stats_Map(dat = Het_dat, plot.type = 'all',
-statistic = "Heterozygosity", countries = c('united states of america', 'mexico'),
-Lat_buffer = 1, Long_buffer = 1, prefix = 'Test_het')}
+statistic = "Heterozygosity",
+Lat_buffer = 1, Long_buffer = 1, write = FALSE, prefix = 'Test_het')}
 }

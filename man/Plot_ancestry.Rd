@@ -10,7 +10,6 @@ Plot_ancestry(
   K,
   plot.type = "all",
   col,
-  countries,
   Lat_buffer,
   Long_buffer
 )
@@ -18,15 +17,13 @@ Plot_ancestry(
 \arguments{
 \item{anc.mat}{Data frame or character string that supplies the input data. If it is a character string, the file should be a csv. The first column should be the names of each sample/population, followed by the estimated contribution of each cluster to that individual/pop.}
 
-\item{pops}{Data frame or character string that supplies the input data. If it is a character string, the file should be a csv. The columns should be named Sample, containing the sample IDs; Population indicating the population assignment of the individual; Long, indicating the longitude of the sample; Lat, indicating the latitude of the sample.}
+\item{pops}{Data frame or character string that supplies the input data. If it is a character string, the file should be a csv. The columns should be named Sample, containing the sample IDs; Population indicating the population assignment of the individual, population and sample names must be the same type (i.e., both numeric or both characters); Long, indicating the longitude of the sample; Lat, indicating the latitude of the sample.}
 
 \item{K}{Numeric.The number of genetic clusters in your data set, please contact the package authors if you need help doing this.}
 
 \item{plot.type}{Character string. Options are all, individual, and population. All is default and recommended, this will plot a barchart and piechart map for both the individuals and populations.}
 
 \item{col}{Character vector indicating the colors you wish to use for plotting.}
-
-\item{countries}{Character vector indicating the country borders that you wish to plot on a map. Can be any country that is valid in the ne_statest function in the rnaturalearth package.}
 
 \item{Lat_buffer}{Numeric. A buffer to customize visualization.}
 
@@ -42,8 +39,9 @@ Plot an ancestry matrix and map of ancestry pie charts.
 \donttest{
 data(Q_dat)
 Qmat <- Q_dat[[1]]
+rownames(Qmat) <- Qmat[,1]
 Loc <- Q_dat[[2]]
 Test_all <- Plot_ancestry(anc.mat = Qmat, pops = Loc, K = 5,
-plot.type = 'all', col = c('red', 'orange', 'pink', 'purple', 'blue'),
-countries = c("united states of america", "mexico"), Lat_buffer = 1, Long_buffer = 1)}
+plot.type = 'all', col <- c('red', 'maroon', 'navy', 'cyan', 'blue'),
+Lat_buffer = 1, Long_buffer = 1)}
 }

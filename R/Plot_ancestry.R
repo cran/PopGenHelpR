@@ -1,3 +1,4 @@
+#' \bold{WARNING! This function has been deprecated and is no longer supported. Please use the Ancestry_barchart and Piechart_map functions.}
 #' Plot an ancestry matrix and map of ancestry pie charts.
 #'
 #' @param anc.mat Data frame or character string that supplies the input data. If it is a character string, the file should be a csv. The first column should be the names of each sample/population, followed by the estimated contribution of each cluster to that individual/pop.
@@ -5,6 +6,7 @@
 #' @param K Numeric.The number of genetic clusters in your data set, please contact the package authors if you need help doing this.
 #' @param plot.type Character string. Options are all, individual, and population. All is default and recommended, this will plot a barchart and piechart map for both the individuals and populations.
 #' @param col Character vector indicating the colors you wish to use for plotting.
+#' @param piesize Numeric. The radius of the pie chart for ancestry mapping.
 #' @param Lat_buffer Numeric. A buffer to customize visualization.
 #' @param Long_buffer Numeric. A buffer to customize visualization.
 #'
@@ -19,9 +21,13 @@
 #' rownames(Qmat) <- Qmat[,1]
 #' Loc <- Q_dat[[2]]
 #' Test_all <- Plot_ancestry(anc.mat = Qmat, pops = Loc, K = 5,
-#' plot.type = 'all', col <- c('red', 'maroon', 'navy', 'cyan', 'blue'),
+#' plot.type = 'all', col <- c('red', 'maroon', 'navy', 'cyan', 'blue'), piesize = 0.35,
 #' Lat_buffer = 1, Long_buffer = 1)}
-Plot_ancestry <- function(anc.mat, pops, K, plot.type = 'all', col, Lat_buffer, Long_buffer){
+Plot_ancestry <- function(anc.mat, pops, K, plot.type = 'all', col, piesize = 0.35, Lat_buffer, Long_buffer){
+
+
+  .Deprecated("Plot_ancestry or Ancestry_barchart", msg = "The Plot_ancestry function has been deprecated as of PopGenHelpR v1.3.0 and will dissappear in v2.0.0. Please use the Piechart_map and Ancestry_barchart function(s) if you wish to plot ancestry maps or barcharts.")
+
   Pop <- coeff <- Sample <- value <- variable <- aes <- Long <- Lat <- alpha <- ID<- NULL
   # Read in ancestry matrix and pop file
   if(missing(anc.mat)){
@@ -58,8 +64,8 @@ Plot_ancestry <- function(anc.mat, pops, K, plot.type = 'all', col, Lat_buffer, 
   map <- spData::world["continent"]
   states <- spData::us_states["REGION"]
   ### Make a base map for the countries of interest
-  base_map <- ggplot2::ggplot() + ggplot2::geom_sf(data = map, fill = "grey99") +
-    ggplot2::geom_sf(data = states, fill = ggplot2::alpha("grey99", 0))
+  base_map <- ggplot2::ggplot() + ggplot2::geom_sf(data = map, fill = "#f4f4f4") +
+    ggplot2::geom_sf(data = states, fill = ggplot2::alpha("#f4f4f4", 0))
 
   ### Get coordinate ranges for our data
   Lat_Min <- min(Coords$Lat) - Lat_buffer
@@ -112,7 +118,7 @@ Plot_ancestry <- function(anc.mat, pops, K, plot.type = 'all', col, Lat_buffer, 
 
 
     Ind_map <- base_map + ggplot2::coord_sf(xlim = c(Long_Min, Long_Max),  ylim = c(Lat_Min, Lat_Max)) +
-      scatterpie::geom_scatterpie(data = Ind_anc, ggplot2::aes(Long, Lat, r = 0.35), cols = c(colnames(Ind_anc[2:(K+1)]))) +
+      scatterpie::geom_scatterpie(data = Ind_anc, ggplot2::aes(Long, Lat, r = piesize), cols = c(colnames(Ind_anc[2:(K+1)]))) +
       ggplot2::scale_fill_manual(breaks = c(colnames(Ind_anc[2:(K+1)])),
                                  labels = c(paste('Cluster', 1:K, sep = ' ')),
                                  values = c(col[1], col[2], col[3], col[4], col[5], col[6], col[7], col[8], col[9], col[10])) +
@@ -120,7 +126,7 @@ Plot_ancestry <- function(anc.mat, pops, K, plot.type = 'all', col, Lat_buffer, 
 
     # Map populations
     Pop_map <- base_map + ggplot2::coord_sf(xlim = c(Long_Min, Long_Max),  ylim = c(Lat_Min, Lat_Max)) +
-      scatterpie::geom_scatterpie(data = Pop_anc, ggplot2::aes(Long, Lat, r = 0.35), cols = c(colnames(Pop_anc[2:(K+1)]))) +
+      scatterpie::geom_scatterpie(data = Pop_anc, ggplot2::aes(Long, Lat, r = piesize), cols = c(colnames(Pop_anc[2:(K+1)]))) +
       ggplot2::scale_fill_manual(breaks = c(colnames(Pop_anc[2:(K+1)])),
                                  labels = c(paste('Cluster', 1:K, sep = ' ')),
                                  values = c(col[1], col[2], col[3], col[4], col[5], col[6], col[7], col[8], col[9], col[10])) +
@@ -182,7 +188,7 @@ Plot_ancestry <- function(anc.mat, pops, K, plot.type = 'all', col, Lat_buffer, 
 
 
     Ind_map <- base_map + ggplot2::coord_sf(xlim = c(Long_Min, Long_Max),  ylim = c(Lat_Min, Lat_Max)) +
-      scatterpie::geom_scatterpie(data = Ind_anc, ggplot2::aes(Long, Lat, r = 0.35), cols = c(colnames(Ind_anc[2:(K+1)]))) +
+      scatterpie::geom_scatterpie(data = Ind_anc, ggplot2::aes(Long, Lat, r = piesize), cols = c(colnames(Ind_anc[2:(K+1)]))) +
       ggplot2::scale_fill_manual(breaks = c(colnames(Ind_anc[2:(K+1)])),
                                  labels = c(paste('Cluster', 1:K, sep = ' ')),
                                  values = c(col[1], col[2], col[3], col[4], col[5], col[6], col[7], col[8], col[9], col[10])) +
@@ -190,7 +196,7 @@ Plot_ancestry <- function(anc.mat, pops, K, plot.type = 'all', col, Lat_buffer, 
 
     # Map populations
     Pop_map <- base_map + ggplot2::coord_sf(xlim = c(Long_Min, Long_Max),  ylim = c(Lat_Min, Lat_Max)) +
-      scatterpie::geom_scatterpie(data = Pop_anc, ggplot2::aes(Long, Lat, r = 0.35), cols = c(colnames(Pop_anc[2:(K+1)]))) +
+      scatterpie::geom_scatterpie(data = Pop_anc, ggplot2::aes(Long, Lat, r = piesize), cols = c(colnames(Pop_anc[2:(K+1)]))) +
       ggplot2::scale_fill_manual(breaks = c(colnames(Pop_anc[2:(K+1)])),
                                  labels = c(paste('Cluster', 1:K, sep = ' ')),
                                  values = c(col[1], col[2], col[3], col[4], col[5], col[6], col[7], col[8], col[9], col[10])) +
@@ -218,7 +224,7 @@ Plot_ancestry <- function(anc.mat, pops, K, plot.type = 'all', col, Lat_buffer, 
     Ind_anc[,c(ncol(Ind_anc) +1,ncol(Ind_anc) +2)] <- Pops[,3:4]
 
     Ind_map <- base_map + ggplot2::coord_sf(xlim = c(Long_Min, Long_Max),  ylim = c(Lat_Min, Lat_Max)) +
-      scatterpie::geom_scatterpie(data = Ind_anc, ggplot2::aes(Long, Lat, r = 0.35), cols = c(colnames(Ind_anc[2:(K+1)]))) +
+      scatterpie::geom_scatterpie(data = Ind_anc, ggplot2::aes(Long, Lat, r = piesize), cols = c(colnames(Ind_anc[2:(K+1)]))) +
       ggplot2::scale_fill_manual(breaks = c(colnames(Ind_anc[2:(K+1)])),
                                  labels = c(paste('Cluster', 1:K, sep = ' ')),
                                  values = c(col[1], col[2], col[3], col[4], col[5], col[6], col[7], col[8], col[9], col[10])) +
@@ -253,7 +259,7 @@ Plot_ancestry <- function(anc.mat, pops, K, plot.type = 'all', col, Lat_buffer, 
     Ind_anc[,c(ncol(Ind_anc) +1,ncol(Ind_anc) +2)] <- Pops[,3:4]
 
     Ind_map <- base_map + ggplot2::coord_sf(xlim = c(Long_Min, Long_Max),  ylim = c(Lat_Min, Lat_Max)) +
-      scatterpie::geom_scatterpie(data = Ind_anc, ggplot2::aes(Long, Lat, r = 0.35), cols = c(colnames(Ind_anc[2:(K+1)]))) +
+      scatterpie::geom_scatterpie(data = Ind_anc, ggplot2::aes(Long, Lat, r = piesize), cols = c(colnames(Ind_anc[2:(K+1)]))) +
       ggplot2::scale_fill_manual(breaks = c(colnames(Ind_anc[2:(K+1)])),
                                  labels = c(paste('Cluster', 1:K, sep = ' ')),
                                  values = c(col[1], col[2], col[3], col[4], col[5], col[6], col[7], col[8], col[9], col[10])) +
@@ -284,7 +290,7 @@ Plot_ancestry <- function(anc.mat, pops, K, plot.type = 'all', col, Lat_buffer, 
       ggplot2::scale_x_continuous(breaks = 1:nrow(Pop_anc),labels = unique(qmatrix_melt_pop$Pop))
 
     Pop_map <- base_map + ggplot2::coord_sf(xlim = c(Long_Min, Long_Max),  ylim = c(Lat_Min, Lat_Max)) +
-      scatterpie::geom_scatterpie(data = Pop_anc, ggplot2::aes(Long, Lat, r = 0.35), cols = c(colnames(Pop_anc[2:(K+1)]))) +
+      scatterpie::geom_scatterpie(data = Pop_anc, ggplot2::aes(Long, Lat, r = piesize), cols = c(colnames(Pop_anc[2:(K+1)]))) +
       ggplot2::scale_fill_manual(breaks = c(colnames(Pop_anc[2:(K+1)])),
                                  labels = c(paste('Cluster', 1:K, sep = ' ')),
                                  values = c(col[1], col[2], col[3], col[4], col[5], col[6], col[7], col[8], col[9], col[10])) +
@@ -320,7 +326,7 @@ Plot_ancestry <- function(anc.mat, pops, K, plot.type = 'all', col, Lat_buffer, 
       ggplot2::theme(axis.text.x = ggplot2::element_text(angle = 90, vjust = 0.5, hjust=1))
 
     Pop_map <- base_map + ggplot2::coord_sf(xlim = c(Long_Min, Long_Max),  ylim = c(Lat_Min, Lat_Max)) +
-      scatterpie::geom_scatterpie(data = Pop_anc, ggplot2::aes(Long, Lat, r = 0.35), cols = c(colnames(Pop_anc[2:(K+1)]))) +
+      scatterpie::geom_scatterpie(data = Pop_anc, ggplot2::aes(Long, Lat, r = piesize), cols = c(colnames(Pop_anc[2:(K+1)]))) +
       ggplot2::scale_fill_manual(breaks = c(colnames(Pop_anc[2:(K+1)])),
                                  labels = c(paste('Cluster', 1:K, sep = ' ')),
                                  values = c(col[1], col[2], col[3], col[4], col[5], col[6], col[7], col[8], col[9], col[10])) +

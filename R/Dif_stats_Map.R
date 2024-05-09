@@ -1,3 +1,4 @@
+#' \bold{WARNING! This function has been deprecated and is no longer supported. Please use the Network_map function.}
 #' A function to map differentiation statistics.
 #'
 #' @param dat Data frame or character string that supplies the input data. If it is a character string, the file should be a csv. If it is a csv, the 1st row should contain the individual/population names. The columns should also be named in this fashion.
@@ -9,6 +10,9 @@
 #' @param Long_buffer Numeric. A buffer to customize visualization.
 #'
 #' @return A list containing the map and the matrix used to plot the map.
+#'
+#' @author Keaka Farleigh
+#'
 #' @export
 #'
 #' @examples
@@ -26,8 +30,8 @@ Dif_Stats_Map <- function(dat, pops, neighbors, col, breaks = NULL, Lat_buffer, 
   map <- spData::world["continent"]
   states <- spData::us_states["REGION"]
   ### Make a base map for the countries of interest
-  base_map <- ggplot2::ggplot() + ggplot2::geom_sf(data = map, fill = "grey99") +
-    ggplot2::geom_sf(data = states, fill = ggplot2::alpha("grey99", 0))
+  base_map <- ggplot2::ggplot() + ggplot2::geom_sf(data = map, fill = "#f4f4f4") +
+    ggplot2::geom_sf(data = states, fill = ggplot2::alpha("#f4f4f4", 0))
 
 
   # Read in files

@@ -1,4 +1,5 @@
-#' A function to map diversity statistics.
+#'\bold{WARNING! This function has been deprecated and is no longer supported. Please use the Point_map function instead.}
+#'A function to map diversity statistics.
 #'
 #' @param dat Data frame or character string that supplies the input data. If it is a character string, the file should be a csv. The first column should be the statistic to be plotted and named the same as the statistic argument. The second column is Population indicating which population each row belongs to. The third column is the standard deviation, the fourth column is Long indicating the longitude, and the fifth column is Lat, indicating the latitude.
 #' @param plot.type Character string. Options are all, point, or interpolated. All is recommended and will generate a map with points colored according to heterozygosity as well as a rater of interpolated heterozygosity values.
@@ -33,8 +34,8 @@ Div_Stats_Map <- function(dat, plot.type = 'all', statistic, breaks = NULL, col,
   map <- spData::world["continent"]
   states <- spData::us_states["REGION"]
   ### Make a base map for the countries of interest
-  base_map <- ggplot2::ggplot() + ggplot2::geom_sf(data = map, fill = "grey99") +
-    ggplot2::geom_sf(data = states, fill = ggplot2::alpha("grey99", 0))
+  base_map <- ggplot2::ggplot() + ggplot2::geom_sf(data = map, fill = "#f4f4f4") +
+    ggplot2::geom_sf(data = states, fill = ggplot2::alpha("#f4f4f4", 0))
   # Read in files
   if(is.data.frame(dat) == TRUE){
     Div_mat <- dat
@@ -90,10 +91,10 @@ Div_Stats_Map <- function(dat, plot.type = 'all', statistic, breaks = NULL, col,
     R_df <- data.frame(R_pts)
     colnames(R_df)[1] <- 'z'
 
-    ras_map <-  ggplot2::ggplot() + ggplot2::geom_sf(data = map, fill = "grey99") +
+    ras_map <-  ggplot2::ggplot() + ggplot2::geom_sf(data = map, fill = "#f4f4f4") +
       ggplot2::geom_raster(data = R_df, ggplot2::aes(x = x, y= y, fill = z)) +
       ggplot2::scale_fill_gradientn(colors = col, name = statistic) +
-      ggplot2::geom_sf(data = states, fill = ggplot2::alpha("grey99", 0))
+      ggplot2::geom_sf(data = states, fill = ggplot2::alpha("#f4f4f4", 0))
 
     Div_inter_map <- ras_map +
       ggplot2::coord_sf(xlim = c(Long_Min, Long_Max),  ylim = c(Lat_Min, Lat_Max)) +
@@ -133,10 +134,10 @@ Div_Stats_Map <- function(dat, plot.type = 'all', statistic, breaks = NULL, col,
       R_df <- data.frame(R_pts)
       colnames(R_df)[1] <- 'z'
 
-      ras_map <-  ggplot2::ggplot() + ggplot2::geom_sf(data = map, fill = "grey99") +
+      ras_map <-  ggplot2::ggplot() + ggplot2::geom_sf(data = map, fill = "#f4f4f4") +
         ggplot2::geom_raster(data = R_df, ggplot2::aes(x = x, y= y, fill = z)) +
         ggplot2::scale_fill_gradientn(colors = col, name = statistic) +
-        ggplot2::geom_sf(data = states, fill = ggplot2::alpha("grey99", 0))
+        ggplot2::geom_sf(data = states, fill = ggplot2::alpha("#f4f4f4", 0))
 
       Div_inter_map <- ras_map +
         ggplot2::coord_sf(xlim = c(Long_Min, Long_Max),  ylim = c(Lat_Min, Lat_Max)) +
@@ -179,10 +180,10 @@ Div_Stats_Map <- function(dat, plot.type = 'all', statistic, breaks = NULL, col,
     R_df <- data.frame(R_pts)
     colnames(R_df)[1] <- 'z'
 
-    ras_map <-  ggplot2::ggplot() + ggplot2::geom_sf(data = map, fill = "grey99") +
+    ras_map <-  ggplot2::ggplot() + ggplot2::geom_sf(data = map, fill = "#f4f4f4") +
       ggplot2::geom_raster(data = R_df, ggplot2::aes(x = x, y= y, fill = z)) +
       ggplot2::scale_fill_gradientn(colors = col, name = statistic) +
-      ggplot2::geom_sf(data = states, fill = ggplot2::alpha("grey99", 0))
+      ggplot2::geom_sf(data = states, fill = ggplot2::alpha("#f4f4f4", 0))
 
     Div_inter_map <- ras_map +
       ggplot2::coord_sf(xlim = c(Long_Min, Long_Max),  ylim = c(Lat_Min, Lat_Max)) +
@@ -212,10 +213,10 @@ Div_Stats_Map <- function(dat, plot.type = 'all', statistic, breaks = NULL, col,
       R_df <- data.frame(R_pts)
       colnames(R_df)[1] <- 'z'
 
-      ras_map <-  ggplot2::ggplot() + ggplot2::geom_sf(data = map, fill = "grey99") +
+      ras_map <-  ggplot2::ggplot() + ggplot2::geom_sf(data = map, fill = "#f4f4f4") +
         ggplot2::geom_raster(data = R_df, ggplot2::aes(x = x, y= y, fill = z)) +
         ggplot2::scale_fill_gradientn(colors = col, name = statistic) +
-        ggplot2::geom_sf(data = states, fill = ggplot2::alpha("grey99", 0))
+        ggplot2::geom_sf(data = states, fill = ggplot2::alpha("#f4f4f4", 0))
 
 
       Div_inter_map <- ras_map +

@@ -2,7 +2,8 @@
 % Please edit documentation in R/Plot_ancestry.R
 \name{Plot_ancestry}
 \alias{Plot_ancestry}
-\title{Plot an ancestry matrix and map of ancestry pie charts.}
+\title{\bold{WARNING! This function has been deprecated and is no longer supported. Please use the Ancestry_barchart and Piechart_map functions.}
+Plot an ancestry matrix and map of ancestry pie charts.}
 \usage{
 Plot_ancestry(
   anc.mat,
@@ -10,6 +11,7 @@ Plot_ancestry(
   K,
   plot.type = "all",
   col,
+  piesize = 0.35,
   Lat_buffer,
   Long_buffer
 )
@@ -25,6 +27,8 @@ Plot_ancestry(
 
 \item{col}{Character vector indicating the colors you wish to use for plotting.}
 
+\item{piesize}{Numeric. The radius of the pie chart for ancestry mapping.}
+
 \item{Lat_buffer}{Numeric. A buffer to customize visualization.}
 
 \item{Long_buffer}{Numeric. A buffer to customize visualization.}
@@ -33,6 +37,7 @@ Plot_ancestry(
 A list containing your plots and the data frames used to generate the plots.
 }
 \description{
+\bold{WARNING! This function has been deprecated and is no longer supported. Please use the Ancestry_barchart and Piechart_map functions.}
 Plot an ancestry matrix and map of ancestry pie charts.
 }
 \examples{
@@ -42,6 +47,6 @@ Qmat <- Q_dat[[1]]
 rownames(Qmat) <- Qmat[,1]
 Loc <- Q_dat[[2]]
 Test_all <- Plot_ancestry(anc.mat = Qmat, pops = Loc, K = 5,
-plot.type = 'all', col <- c('red', 'maroon', 'navy', 'cyan', 'blue'),
+plot.type = 'all', col <- c('red', 'maroon', 'navy', 'cyan', 'blue'), piesize = 0.35,
 Lat_buffer = 1, Long_buffer = 1)}
 }

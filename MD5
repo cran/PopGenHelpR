@@ -1,8 +1,8 @@
-00ef5ff7376e0b612b17312f66800575 *DESCRIPTION
+243c177ea986eae1d841f807cdfd94ff *DESCRIPTION
 283d7793a93562c362942b1cf45ff51d *NAMESPACE
-ddc57b81741ed7c9002a1860cfdea566 *NEWS.md
+9a1c1a0f4b4876ef4d10712e77ccd9c5 *NEWS.md
 a5a5301c36ca7aaa1feddd1aedfa8b46 *R/Ancestry_barchart.R
-ac043a8c83e05b0f0814e22d99dbcbd8 *R/Differentiation.R
+eb7f69974a0725db3b1c52f284686c42 *R/Differentiation.R
 5a8dfcd694528cf70203bbc369fb6f0c *R/Heterozygosity.R
 7030ba174dc13f626f2376ff8b8e8ddb *R/Network_map.R
 46e0c19114f95e2bc76c64275c710c1a *R/PCA.R
@@ -12,7 +12,7 @@ e48f4baba50ca179971ee41c73848383 *R/Plot_coordinates.R
 6ac45d4c7c9721f620116805190475fa *R/Point_map.R
 72735f48be508e16bcc7d960c5d5eb96 *R/Private.alleles.R
 a12a1e8df98f507d0ab2e99f3258e000 *R/data.R
-6bc33997047010fe7158e16beb424248 *README.md
+0a2d4dbca019a91c3d01f30b3cc09930 *README.md
 b943a1546a1e17be4eea235ec7b4616b *build/partial.rdb
 ef98e25d1b6f0cff72104b2eda56f9e0 *build/vignette.rds
 fb3f8c49dd01762bacb9b85e2ca582cb *data/Fst_dat.rda
@@ -56,7 +56,7 @@ af4bb71ce5cdc0190c3389f594515ec2 *vignettes/articles/Anc_barchart_sortedinds.png
 e9dd631c9500bff4f772bc3e782596e9 *vignettes/articles/PCA_scatterplot.png
 9af9f08de441517a61c6dce205f34648 *vignettes/articles/PCA_varplot.png
 3c80b5d38ebaa69496b69c5018475d9e *vignettes/articles/PopGenHelpR_PCA.Rmd
-864391dc0987bfbf98dfe56ead7470f6 *vignettes/articles/PopGenHelpR_benchmarking.Rmd
+624d975ee4e15dfda6bf868baa5d558e *vignettes/articles/PopGenHelpR_benchmarking.Rmd
 1f5d90cffd05de398b7a374a76c4391b *vignettes/articles/PopGenHelpR_createQmatrix.Rmd
 d78fd6891fe1475e90f7b22233672063 *vignettes/articles/PopGenHelpR_heterozygosity.Rmd
 5bdb3fe847ab790998798fd5eac6ca41 *vignettes/articles/PopGenHelpR_sortQmatrix.Rmd

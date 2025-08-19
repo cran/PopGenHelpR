@@ -76,15 +76,15 @@ knitr::include_graphics("./img/Anc_barchart2.png")
 # 
 # # Now we will generate both population and individual plots by setting plot.type to 'all'. If you wanted, you could only generate individual or population plots by setting plot.type to "individual" and "population", respectively.
 # Test_all_piemap <- Piechart_map(anc.mat = Qmat, pops = Loc, K = 5,plot.type = 'all', col = c('#d73027', '#f46d43', '#e0f3f8', '#74add1', '#313695'),
-#                                 Lat_buffer = 1, Long_buffer = 1)
+#                                 Lat_buffer = 1, Long_buffer = 1, country_code = c("usa", "mex", "can"))
 # 
-# Test_all_piemap$`Individual Map`
+# Test_all_piemap$Individual_piemap
 
 ## ----out.width= "500px", out.height= "750px", echo=FALSE, eval=TRUE, fig.align='center'----
 knitr::include_graphics("./img/Ind_PieMap.png")
 
 ## ----Piechart map2, echo=TRUE, eval=FALSE, fig.align='center'-----------------
-# Test_all_piemap$`Population Map`
+# Test_all_piemap$Population_piemap
 
 ## ----out.width= "500px", out.height= "750px", echo=FALSE, eval=TRUE, fig.align='center'----
 knitr::include_graphics("./img/Pop_PieMap.png")
@@ -96,35 +96,35 @@ knitr::include_graphics("./img/Pop_PieMap.png")
 knitr::include_graphics("./img/PWhmap.png")
 
 ## ----Network Map, echo=TRUE, eval=FALSE---------------------------------------
-# NW_map <- Network_map(Fst_dat[[1]], pops = Fst_dat[[2]], neighbors = 2, statistic = "Fst")
+# NW_map <- Network_map(Fst_dat[[1]], pops = Fst_dat[[2]], neighbors = 2, statistic = "Fst", country_code = c("usa", "mex", "can"))
 # NW_map$Map
 
 ## ----out.width= "500px", out.height= "750px", echo=FALSE, eval=TRUE, fig.align='center'----
 knitr::include_graphics("./img/NW_map1.png")
 
 ## ----Network Map2, echo=TRUE, eval=FALSE--------------------------------------
-# NW_map2 <- Network_map(Fst_dat[[1]], pops = Fst_dat[[2]], neighbors = c("East_West", "East_South"), statistic = "Fst")
+# NW_map2 <- Network_map(Fst_dat[[1]], pops = Fst_dat[[2]], neighbors = c("East_West", "East_South"), statistic = "Fst", country_code = c("usa", "mex", "can"))
 # NW_map2$Map
 
 ## ----out.width= "500px", out.height= "750px", echo=FALSE, eval=TRUE, fig.align='center'----
 knitr::include_graphics("./img/NW_map2.png")
 
 ## ----Heterozygosity2, echo=TRUE, eval=FALSE-----------------------------------
-# Het_map <- Point_map(Het_dat, statistic = "Heterozygosity")
+# Het_map <- Point_map(Het_dat, statistic = "Heterozygosity", country_code = c("usa", "mex", "can"))
 # Het_map$`Heterozygosity Map`
 
 ## ----out.width= "500px", out.height= "750px", echo=FALSE, eval=TRUE, fig.align='center'----
 knitr::include_graphics("./img/Het_map1.png")
 
 ## ----Heterozygosity3, echo=TRUE, eval=FALSE-----------------------------------
-# Het_map2 <- Point_map(Het_dat, statistic = "Heterozygosity", out.col = "#000000")
+# Het_map2 <- Point_map(Het_dat, statistic = "Heterozygosity", out.col = "#000000", country_code = c("usa", "mex", "can"))
 # Het_map2$`Heterozygosity Map`
 
 ## ----out.width= "500px", out.height= "750px", echo=FALSE, eval=TRUE, fig.align='center'----
 knitr::include_graphics("./img/Het_map2.png")
 
 ## ----Coordinates, echo=TRUE, eval=FALSE---------------------------------------
-# Sample_map <- Plot_coordinates(HornedLizard_Pop)
+# Sample_map <- Plot_coordinates(HornedLizard_Pop, country_code = c("usa", "mex", "can"))
 # Sample_map
 
 ## ----out.width= "500px", out.height= "750px", echo=FALSE, eval=TRUE, fig.align='center'----

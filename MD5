@@ -1,9 +1,9 @@
-58bc8f24a77b78c4bd596d01230fc044 *DESCRIPTION
+88d06a1078d0075eeb0395455b89dba3 *DESCRIPTION
 283d7793a93562c362942b1cf45ff51d *NAMESPACE
-34101bf80c9452ac6aaf871366890afb *NEWS.md
+d504f6a7d62e7a6202b7c8d72f616bb4 *NEWS.md
 17371292bc2be91bc99d7d17e6fb6755 *R/Ancestry_barchart.R
-38ba4b40956bad9d2e995518f59bd515 *R/Differentiation.R
-9a96c41fdfc97042f526c380b890d2e7 *R/Heterozygosity.R
+28502cec2a7ba796ab8a5de342b1f2e2 *R/Differentiation.R
+9cc0f25dbd54b1f587f8e6e2de37db18 *R/Heterozygosity.R
 4f7ad940ed4a156f07a63e9407029ce7 *R/Network_map.R
 46e0c19114f95e2bc76c64275c710c1a *R/PCA.R
 841334c6f459bc33d764601dde29e4ae *R/Pariwise_heatmap.R
@@ -12,7 +12,7 @@ ec721908d93e2c1ad0ad75f56fb8e69b *R/Piechart_map.R
 78454bf5a12588eea63ec48ffae4e8d1 *R/Point_map.R
 753df067c3e0a596dad39f219260d67c *R/Private.alleles.R
 f4d6a244b9eb079e1930eb7bc98c85fb *R/data.R
-00563aa310f5bd1b5545870649686230 *README.md
+606f816fb7d01dc00068517d3b4be367 *README.md
 b54db8794555342c4feee5fe0b1b8f5b *build/partial.rdb
 489c14c008b8f3f54e3959b9db024321 *build/vignette.rds
 fb3f8c49dd01762bacb9b85e2ca582cb *data/Fst_dat.rda
@@ -96,10 +96,10 @@ f750712b2b158b9d9d42b2d095b718d1 *inst/extdata/Crotalus_viridis.sbx
 7d17741afaf65cf1dada21912d67afa2 *inst/extdata/Crotalus_viridis.shp.xml
 de6bfe19f35cd324dce934487b8a14a2 *inst/extdata/Crotalus_viridis.shx
 7684cf0ab2d500d52508c5ae2dea6e50 *man/Ancestry_barchart.Rd
-a227e3f5f8a9fdc7395723211b496cbf *man/Differentiation.Rd
+e7bce088724618846bb609cc25168e5e *man/Differentiation.Rd
 035e2fdfb5bd3dc466085112210d895f *man/Fst_dat.Rd
 373836a3d466a28be8c7746fb6bffa13 *man/Het_dat.Rd
-cb137b5ef2b2029840b54a27b1b4f3af *man/Heterozygosity.Rd
+2602f8ecdd35ab1a9becfdf565d672a4 *man/Heterozygosity.Rd
 466690764e9a976783db84b9bc25bdbf *man/HornedLizard_Pop.Rd
 effec68d9dcd6cad106e1239c00c1751 *man/HornedLizard_VCF.Rd
 c26e8192494c7c239b37a3744428d701 *man/Network_map.Rd
